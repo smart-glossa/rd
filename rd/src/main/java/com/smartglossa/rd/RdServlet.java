@@ -32,13 +32,20 @@ public class RdServlet extends HttpServlet {
 			String addr=request.getParameter("addr");
 			JSONObject result=new JSONObject();
 			try {
-				
-				
+				RdClass rd=new RdClass();
+				rd.addCustomer(cusName, aadharNum, mobileNum, addr);
+				result.put("status", 1);
 			} catch (Exception e) {
+				e.printStackTrace();
+				result.put("status", 0);
 
 			}
 			response.getWriter().println(result);
 			
+		}
+		if(operation.equals("addCusAccount")){
+			
+		   
 		}
 	}
 

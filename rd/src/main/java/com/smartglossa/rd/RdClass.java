@@ -17,17 +17,19 @@ public class RdClass {
 		
 	}
 	
-	public void addCustomer(String cusName,String aadharNum,String mobileNum,String addr) {
+	public void addCustomer(String cusName,String aadharNum,String mobileNum,String addr) throws SQLException {
 		try {
-			String query="insert into customer()";
-			
+			String query="insert into customer(customerName,aadharNumber,mobileNumber,address)values('"+cusName+"','"+aadharNum+"','"+mobileNum+"','"+addr+"')";
+            stat.execute(query);			
 		} finally {
+			CloseConnection();
 
 		}
 		
 		
 	}
 
+	
 	private void OpenConnection() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		con = DriverManager.getConnection("jdbc:mysql://"+ RdConstant.MY_SERVER + "/" + RdConstant.DATABASE,RdConstant.USERNAME,RdConstant.PASSWORD);
@@ -35,5 +37,18 @@ public class RdClass {
 		
 		
 	}
+	private void CloseConnection() throws SQLException {
+
+		if (con != null) {
+			con.close();
+		}
+		if (stat != null) {
+			stat.close();
+		}
+		if (rs != null) {
+			rs.close();
+		}
+	}
+
 
 }
