@@ -47,7 +47,7 @@ public class RdClass {
 		} finally {
             CloseConnection();
 		}
-		
+		 
 	}
 	public void updateCusAccount(String aadharNum,String accNum,int amt,String duration) throws SQLException {
 		try {
