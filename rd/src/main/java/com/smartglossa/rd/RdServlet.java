@@ -26,7 +26,7 @@ public class RdServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String operation=request.getParameter("operation");
 		if(operation.equals("addCustomer")){
-			String cusName=request.getParameter("cusname");
+			String cusName=request.getParameter("cusName");
 			String aadharNum=request.getParameter("aadharNum");
 			String mobileNum=request.getParameter("mobileNum");
 			String addr=request.getParameter("addr");
@@ -42,7 +42,7 @@ public class RdServlet extends HttpServlet {
 			response.getWriter().println(result);
 		}
 		if(operation.equals("updateCustomer")){
-			String cusName=request.getParameter("cusname");
+			String cusName=request.getParameter("cusName");
 			String aadharNum=request.getParameter("aadharNum");
 			String mobileNum=request.getParameter("mobileNum");
 			String addr=request.getParameter("addr");

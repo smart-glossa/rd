@@ -20,6 +20,50 @@ $(document).ready(function(){
 			$("#addr").focus().css("outline-color","red");
 			return false;
 		}
-		var url=""; 
-	})
+		var url="/rd/RdServlet?operation=addCustomer&cusName="+cname+"&aadharNum="+aadhar+"&mobileNum="+mno+"&addr="+addr; 
+		$.ajax({
+			url:url,
+			type:'POST'
+		}).done(function(result){
+			alert("Successfully Added");
+		}).fail(function(result){
+			alert("Please Check Deatils");
+		})
+	});
+	$(document).on("click","#update",function(){
+		var cname=$("#name").val();
+		var aadhar=$("#aadhar").val();
+		var mno=$("#mno").val();
+		var addr=$("#addr").val();
+		if(cname==""){
+			$("#name").focus().css("outline-color","red");
+			return;
+		}
+		if(aadhar==""){
+			$("#aadhar").focus().css("outline-color","red");
+			return;
+		}
+		if(mno==""){
+			$("#mno").focus().css("outline-color","red");
+			return;
+		}
+		if(addr==""){
+			$("#addr").focus().css("outline-color","red");
+			return;
+		}
+		var url="/rd/RdServlet?operation=updateCustomer&cusName="+cname+"&aadharNum="+aadhar+"&mobileNum="+mno+"&addr="+addr;
+		
+		$.ajax({
+			url:url,
+			type:'POST'
+		}).done(function(result){
+			alert("Update Successfully");
+			
+		}).fail(function(result){
+			alert("Error Accours");
+		})
+	});
+	
+	
+	
 })
