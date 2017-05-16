@@ -20,6 +20,6 @@ $(document).ready(function(){
 			$("#addr").focus().css("outline-color","red");
 			return false;
 		}
-		
+		var url=""; 
 	})
 })
