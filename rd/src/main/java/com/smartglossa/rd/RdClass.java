@@ -28,6 +28,48 @@ public class RdClass {
 		
 		
 	}
+	
+	public void updateCustomer(String cusName,String aadharNum,String mobileNum,String addr) throws SQLException {
+		try {
+			String query="update customer set customerName='"+cusName+"',mobileNumber='"+mobileNum+"',address='"+addr+"' where aadharNumber='"+aadharNum+"' ";
+			stat.execute(query);
+			
+		} finally {
+			CloseConnection();
+			
+		}
+		
+	}
+	public void addCusAccount(String aadharNum,String accNum,int amt,String date,String duration) throws SQLException {
+		try {
+			String query="insert into customeraccount(aadharNumber,accountNumber,amount,date,duration)values('"+aadharNum+"','"+accNum+"',"+amt+",'"+date+"','"+duration+"')";
+		    stat.execute(query);
+		} finally {
+            CloseConnection();
+		}
+		
+	}
+	public void updateCusAccount(String aadharNum,String accNum,int amt,String duration) throws SQLException {
+		try {
+			String query="update customeraccount set accountNumber='"+accNum+"',amount="+amt+",duration='"+duration+"' where aadharNUmber='"+aadharNum+"'";
+			stat.execute(query);
+			
+		} finally {
+            CloseConnection();
+		}
+		
+	}
+	public void addPayment(String accNum,String amount,String date) throws SQLException {
+		try {
+			String query="insert into payment(accountNumber,amount,date)values('"+accNum+"','"+amount+"','"+date+"')";
+			stat.execute(query);
+			
+		} finally {
+			CloseConnection();
+
+		}
+		
+	}
 
 	
 	private void OpenConnection() throws ClassNotFoundException, SQLException{
