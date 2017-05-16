@@ -12,11 +12,12 @@ tableName :
 
   
   2. customerAccount | 
-        CREATE TABLE `customerAccount` (
-  `aadharNumber` varchar(50) DEFAULT NULL,
-  `accountNumber` varchar(20) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL,
-  `date` varchar(50) DEFAULT NULL,
+       CREATE TABLE `customeraccount` (
+  `aadharNumber` varchar(50) default NULL,
+  `accountNumber` varchar(20) default NULL,
+  `amount` int(11) default NULL,
+  `date` varchar(50) default NULL,
+  `duration` varchar(50) default NULL,
   UNIQUE KEY `accountNumber` (`accountNumber`),
   KEY `aadharNumber` (`aadharNumber`),
   CONSTRAINT `customerAccount_ibfk_1` FOREIGN KEY (`aadharNumber`) REFERENCES `customer` (`aadharNumber`)
