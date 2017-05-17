@@ -129,6 +129,10 @@ $(document).ready(function(){
 		})
 	});
 	
+	$(document).on("click","#yearly",function(){
+		var url="/rd/RdServlet?operation=yearlyPayment";
+		
+	})
 	
 	
 })

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import org.json.JSONObject;
 
 
@@ -116,6 +117,17 @@ public class RdServlet extends HttpServlet {
 			} catch (Exception e) {
                  e.printStackTrace();
                  result.put("status", 0);
+			}
+			response.getWriter().println(result);
+		}
+		else if(operation.equals("yearlyPayment")){
+			JSONObject result=new JSONObject();
+			try {
+				RdClass rd=new RdClass();
+				result=rd.yearlyPayment();
+				
+			} catch (Exception e) {
+                   e.printStackTrace();
 			}
 			response.getWriter().println(result);
 		}

@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
+import org.json.JSONObject;
+
+
 public class RdClass {
 	Connection con=null;
 	Statement stat=null;
@@ -80,6 +83,21 @@ public class RdClass {
 
 		}
 		
+	}
+	
+	public JSONObject yearlyPayment() throws SQLException {
+		JSONObject result=new JSONObject();
+		try {
+			String query="select sum(amount) from payment";
+			rs=stat.executeQuery(query);
+			if(rs.next()) {
+				result.put("amount", rs.getString("sum(amount)"));
+			}
+		}
+			finally {
+             CloseConnection();
+		}
+		return result;
 	}
 
 	
