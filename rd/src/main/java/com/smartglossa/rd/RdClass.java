@@ -40,6 +40,17 @@ public class RdClass {
 		}
 		
 	}
+	
+	public void deleteCustomer(String aadhar) throws SQLException {
+		try {
+			String query="delete from customer where aadharNumber="+aadhar;
+			stat.execute(query);
+			
+		} finally {
+             CloseConnection();
+		}
+		
+	}
 	public void addCusAccount(String aadharNum,String accNum,int amt,String date,String duration) throws SQLException {
 		try {
 			String query="insert into customeraccount(aadharNumber,accountNumber,amount,date,duration)values('"+aadharNum+"','"+accNum+"',"+amt+",'"+date+"','"+duration+"')";

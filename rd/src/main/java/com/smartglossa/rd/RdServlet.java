@@ -40,8 +40,7 @@ public class RdServlet extends HttpServlet {
 				result.put("status", 0);
 			}
 			response.getWriter().println(result);
-		}
-		if(operation.equals("updateCustomer")){
+		}else if(operation.equals("updateCustomer")){
 			String cusName=request.getParameter("cusName");
 			String aadharNum=request.getParameter("aadharNum");
 			String mobileNum=request.getParameter("mobileNum");
@@ -57,8 +56,21 @@ public class RdServlet extends HttpServlet {
                  result.put("status",0);
 			}
 			response.getWriter().println(result);
-		}
-		if(operation.equals("addCusAccount")){
+		}else if(operation.equals("deleteCustomer")){
+			String aadhar=request.getParameter("aadhar");
+			JSONObject result=new JSONObject();
+			try {
+				RdClass rd=new RdClass();
+				rd.deleteCustomer(aadhar);
+				result.put("status",1);
+				
+			} catch (Exception e) {
+                  e.printStackTrace();
+                  result.put("status", 0);
+			}
+			response.getWriter().println(result);
+			
+		}else if(operation.equals("addCusAccount")){
 			String aadharNum=request.getParameter("aadharNum");
 			String accNum=request.getParameter("accNum");
 			int amt=Integer.parseInt(request.getParameter("amount"));
@@ -76,8 +88,7 @@ public class RdServlet extends HttpServlet {
 			
 			response.getWriter().println(result);
 		   
-		}
-		if(operation.equals("updateCusAccount")){
+		}else if(operation.equals("updateCusAccount")){
 			String aadharNum=request.getParameter("aadharNum");
 			String accNum=request.getParameter("accNum");
 			int amt=Integer.parseInt(request.getParameter("amount"));
@@ -93,8 +104,7 @@ public class RdServlet extends HttpServlet {
                   result.put("status",0);
 			}
 			response.getWriter().println(result);
-		}
-		if(operation.equals("addPayment")){
+		}else if(operation.equals("addPayment")){
 			String accNum=request.getParameter("accNum");
 			String amount=request.getParameter("amount");
 			String date=request.getParameter("date");

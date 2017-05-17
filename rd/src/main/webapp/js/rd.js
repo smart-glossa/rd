@@ -63,6 +63,9 @@ $(document).ready(function(){
 			alert("Error Accours");
 		})
 	});
+	
+	
+	
 	$(document).on("click","#add",function(){
 		var aadhar=$("#aadhar").val();
 		var acnum=$("#acnum").val();
