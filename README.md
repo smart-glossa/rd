@@ -25,8 +25,8 @@ tableName :
 
         
   3. payment | CREATE TABLE `payment` (
-  `accountNumber` varchar(20) DEFAULT NULL,
-  `date` varchar(50) DEFAULT NULL,
+  `accountNumber` varchar(20) default NULL,
+  `date` varchar(50) default NULL,
   KEY `accountNumber` (`accountNumber`),
-  CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`accountNumber`) REFERENCES `customerAccount` (`accountNumber`)
+  CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`accountNumber`) REFERENCES `customeraccount` (`accountNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 |
