@@ -26,7 +26,6 @@ tableName :
         
   3. payment | CREATE TABLE `payment` (
   `accountNumber` varchar(20) DEFAULT NULL,
-  `amount` varchar(50) DEFAULT NULL,
   `date` varchar(50) DEFAULT NULL,
   KEY `accountNumber` (`accountNumber`),
   CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`accountNumber`) REFERENCES `customerAccount` (`accountNumber`)
