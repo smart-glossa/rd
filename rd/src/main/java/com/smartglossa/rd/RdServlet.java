@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -107,27 +107,25 @@ public class RdServlet extends HttpServlet {
 			response.getWriter().println(result);
 		}else if(operation.equals("addPayment")){
 			String accNum=request.getParameter("accNum");
-			String amount=request.getParameter("amount");
 			String date=request.getParameter("date");
 			JSONObject result=new JSONObject();
 			try {
 				RdClass rd=new RdClass();
-				rd.addPayment(accNum, amount, date);
+				rd.addPayment(accNum,date);
 				result.put("status", 1);
 			} catch (Exception e) {
                  e.printStackTrace();
                  result.put("status", 0);
 			}
 			response.getWriter().println(result);
-		}
-		else if(operation.equals("yearlyPayment")){
-			JSONObject result=new JSONObject();
+		}else if(operation.equals("getAllPayment")){
+			JSONArray result=new JSONArray();
 			try {
 				RdClass rd=new RdClass();
-				result=rd.yearlyPayment();
+				result=rd.getAllPayment();
 				
 			} catch (Exception e) {
-                   e.printStackTrace();
+                  e.printStackTrace();
 			}
 			response.getWriter().println(result);
 		}

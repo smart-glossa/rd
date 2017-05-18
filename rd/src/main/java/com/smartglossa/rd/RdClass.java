@@ -6,8 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+
+
 
 
 public class RdClass {
@@ -73,9 +76,9 @@ public class RdClass {
 		}
 		
 	}
-	public void addPayment(String accNum,String amount,String date) throws SQLException {
+	public void addPayment(String accNum,String date) throws SQLException {
 		try {
-			String query="insert into payment(accountNumber,amount,date,year)values('"+accNum+"','"+amount+"','"+date+"',now())";
+			String query="insert into payment(accountNumber,date)values('"+accNum+"','"+date+"')";
 			stat.execute(query);
 			
 		} finally {
@@ -84,22 +87,26 @@ public class RdClass {
 		}
 		
 	}
-	
-	public JSONObject yearlyPayment() throws SQLException {
-		JSONObject result=new JSONObject();
+	public JSONArray getAllPayment() throws SQLException {
+		JSONArray result=new JSONArray();
 		try {
-			String query="select sum(amount) from payment";
-			rs=stat.executeQuery(query);
-			if(rs.next()) {
-				result.put("amount", rs.getString("sum(amount)"));
+			String query="select * from payment";
+			ResultSet rs=stat.executeQuery(query);
+			while (rs.next()) {
+				JSONObject obj=new JSONObject();
+				obj.put("accountNumber", rs.getString("accountNumber"));
+				obj.put("date",rs.getString("date"));
+				result.put(obj);
+				
 			}
-		}
-			finally {
-             CloseConnection();
+			
+		} finally {
+              CloseConnection();
 		}
 		return result;
+		
 	}
-
+	
 	
 	private void OpenConnection() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");

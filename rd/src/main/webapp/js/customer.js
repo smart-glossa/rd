@@ -52,9 +52,6 @@ function payment(){
 	payment += "<tr>";
 	payment += "<td>Account Number<\/td><td><input type=\"text\" id=\"acnum\"><\/td>";
 	payment += "<\/tr>";
-	payment += "<tr>";
-	payment += "<td>Amount<\/td><td><input type=\"text\" id=\"amt\"><\/td>";
-	payment += "<\/tr>";
 	payment += "<td>Date<\/td><td><input type=\"date\" id=\"date\"><\/td>";
 	payment += "<\/tr>";
 	payment += "<tr>";
