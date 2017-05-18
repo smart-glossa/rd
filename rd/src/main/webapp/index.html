@@ -6,15 +6,23 @@
         <script src="js/external/jquery.js"></script>
         <script src="js/customer.js"></script>
         <script src="js/rd.js"></script> 
+        <link rel="stylesheet" type="text/css"  href="css/rd.css"/> 
+              <link rel="stylesheet" type="text/css"  href="css/bootstrap.min.css"/> 
     </head>
     <body>
+    <div class="container">
+    <header>
+    <img src="images/icon.jpg" class="img-circle" width="100" height="100"/>
+    <h4  class="page-header" id="heading1">Recurring Deposites</h4>
+    </header>
+    <div class="home">
         <button onclick="cus()">Customer</button>
         <button onclick="cusAcc()">Customer Account</button>
         <button onclick="payment()">Payment</button>
         <div class="customer"></div>
         <button id="getAll">getAll</button>
         <div class="get"></div>
-        
-        
+        </div>
+        </div>
     </body>
 </html>
