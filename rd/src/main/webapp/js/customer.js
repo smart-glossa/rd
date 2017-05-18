@@ -43,7 +43,7 @@ function cusAcc(){
 	cusAcc += "<\/tr>";
 	cusAcc += "<\/table>";
 	cusAcc += "<\/div>";
-$('.customer')[0].innerHTML=cusAcc;
+$('.customer')[0].innerHTML=cusAcc; 
 }
 function payment(){
 	var payment="";
