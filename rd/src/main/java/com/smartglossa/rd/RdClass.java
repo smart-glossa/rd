@@ -75,7 +75,7 @@ public class RdClass {
 	}
 	public void addPayment(String accNum,String amount,String date) throws SQLException {
 		try {
-			String query="insert into payment(accountNumber,amount,date)values('"+accNum+"','"+amount+"','"+date+"')";
+			String query="insert into payment(accountNumber,amount,date,year)values('"+accNum+"','"+amount+"','"+date+"',now())";
 			stat.execute(query);
 			
 		} finally {
