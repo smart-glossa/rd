@@ -6,19 +6,19 @@ $(document).ready(function(){
 		var addr=$("#addr").val();
 		if(cname==""){
 			$("#name").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(aadhar==""){
 			$("#aadhar").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(mno==""){
 			$("#mno").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(addr==""){
 			$("#addr").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		var url="/rd/RdServlet?operation=addCustomer&cusName="+cname+"&aadharNum="+aadhar+"&mobileNum="+mno+"&addr="+addr; 
 		$.ajax({
@@ -74,23 +74,23 @@ $(document).ready(function(){
 		var duration=$("#duration").val();
 		if(aadhar==""){
 			$("#aadhar").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(acnum==""){
 			$("#acnum").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(amt==""){
 			$("#amt").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(date==""){
 			$("#date").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(duration==""){
 			$("#duration").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		var url="/rd/RdServlet?operation=addCusAccount&aadharNum="+aadhar+"&accNum="+acnum+"&amount="+amt+"&date="+date+"&duration="+duration; 
 		$.ajax({
@@ -108,15 +108,15 @@ $(document).ready(function(){
 		var date=$("#date").val();
 		if(acnum==""){
 			$("#acnum").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(amt==""){
 			$("#amt").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		if(date==""){
 			$("#date").focus().css("outline-color","red");
-			return false;
+			return;
 		}
 		var url="/rd/RdServlet?operation=addPayment&accNum="+acnum+"&amount="+amt+"&date="+date;
 		$.ajax({
@@ -131,7 +131,14 @@ $(document).ready(function(){
 	
 	$(document).on("click","#yearly",function(){
 		var url="/rd/RdServlet?operation=yearlyPayment";
-		
+		$.ajax({
+			url:url,
+			type:'POST'
+		}).done(function(){
+			var array=JSON.parse(result);
+			var amount=array.amount;
+			$("#repo").val(amount);
+		});
 	})
 	
 	
